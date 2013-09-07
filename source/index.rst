@@ -6,12 +6,13 @@
 Welcome to Teaching Space's documentation!
 ==========================================
 
-Contents:
+Courses:
 
 .. toctree::
    :maxdepth: 2
 
    cs455_655_computer_networking_2013_fall/content.rst
+
    
     
 

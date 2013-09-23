@@ -18,19 +18,23 @@ Code Example
 
 .. literalinclude:: /_static/lab03/echoclient.py
    :language: python
+   :linenos:
 
 * ``echoserver.py``
 
 .. literalinclude:: /_static/lab03/echoserver.py
    :language: python
+   :linenos:
 
 * ``echoserver_worker.py``
 
 .. literalinclude:: /_static/lab03/echoserver_worker.py
    :language: python
+   :linenos:
 
 * ``echoclient_gui.py``
 
 .. literalinclude:: /_static/lab03/echoclient_gui.py
    :language: python
+   :linenos:
 

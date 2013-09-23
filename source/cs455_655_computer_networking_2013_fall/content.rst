@@ -31,4 +31,5 @@ WireShark has been installed on all the Windows machines in the Instructional La
    :maxdepth: 2
 
    lab01/content
+   lab03/content
 

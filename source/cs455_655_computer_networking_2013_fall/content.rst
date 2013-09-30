@@ -32,4 +32,5 @@ WireShark has been installed on all the Windows machines in the Instructional La
 
    lab01/content
    lab03/content
+   lab04/content
 

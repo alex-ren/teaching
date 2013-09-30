@@ -49,7 +49,7 @@ Filters for Wireshark
 ++++++++++++++++++++++
 Find the address of the webserver::
 
-  http.host="gaia.cs.umass.edu"
+  http.host=="gaia.cs.umass.edu"
 
 Locate specific http connection::
 

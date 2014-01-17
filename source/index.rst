@@ -12,6 +12,7 @@ Courses:
    :maxdepth: 2
 
    cs455_655_computer_networking_2013_fall/content.rst
+   cs440_640_artificial_intelligence_2014_spring/content.rst
 
    
     

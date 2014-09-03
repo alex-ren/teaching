@@ -127,39 +127,39 @@ description (grammar) of such language is given in the `note <http://cs-people.b
 
 .. admonition:: Question
 
-    Can this language be described by a regular expression?
+  Can this language be described by a regular expression?
 
 Let's play with regular expression a little bit. http://www.regexr.com/
 
 * Match number between 0 and 255.
 
   .. admonition:: text
-  
-     .11.
-  
-     .0.
-  
-     .249.
-  
-     .253.
+    
+    .11.
+    
+    .0.
+   
+    .249.
+    
+    .253.
 
 * Match phone number of US formats.
 
   .. admonition:: text
-  
-      1-234-567-8901
-  
-      1-234-567-8901
-      
-      1-234-567-8901
-      
-      1 (234) 567-8901
-      
-      1.234.567.8901
-      
-      1/234/567/8901
-      
-      12345678901
+    
+        1-234-567-8901
+    
+        1-234-567-8901
+        
+        1-234-567-8901
+        
+        1 (234) 567-8901
+        
+        1.234.567.8901
+        
+        1/234/567/8901
+        
+        12345678901
 
 
 BNF: Backus Naur Form
@@ -233,7 +233,7 @@ Say we have a regular expression ``00[0-9]*`` (*this is a coder's way of regexp,
 
 .. productionlist::
 	Start : 0 `A1`
-        A1 : 0
+	A1 : 0
 	A1 : 0 `A2`
 	A2 : 0 | 1 | ... | 9
 	A2 : (0 | 1 | ... | 9) `A2`

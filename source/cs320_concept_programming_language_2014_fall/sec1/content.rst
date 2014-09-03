@@ -242,6 +242,7 @@ Describe the language of regular expression using BNF
 ----------------------------------------------------------
 .. productionlist::
 	RE : char
+	RE : `RE` `RE`
         RE : `RE` | `RE`
         RE : `RE`+
         RE : `RE`*

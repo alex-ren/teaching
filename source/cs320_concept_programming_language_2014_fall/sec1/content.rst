@@ -9,23 +9,29 @@ Discussion Session 1
 Submissions
 ===============
 
-In this course, we are using ``gsubmit`` to submit homework. You can find documentations about ``gsubmit`` `here <http://www.cs.bu.edu/teaching/hw/gsubmit/>`_.
-And please **strictly** follow the instructions on that page to submit your homework, **or otherwise your homework will not be graded at all**.
+In this course, we are using ``gsubmit`` to submit homework. 
+The `note <http://cs-people.bu.edu/lapets/320/s.php?#A>`_ describes how to install 
+the softwares necessary to use ``gsubmit``. You can find more details about ``gsubmit`` 
+`here <http://www.cs.bu.edu/teaching/hw/gsubmit/>`_.  And please **strictly** follow 
+the instructions on that page to submit your homework, **or otherwise your homework will not be graded at all**.
 
 Some important thing to know *(extracted from the documentation)*:
 
-* Before submission, make sure all the files are under a **single folder** named ``hwXX``, or otherwise we can't see it in the right place. *e.g.* ``hw01``, ``hw02``, ...
+* Before submission, make sure all the files are under a **single folder** named ``hwXX``, 
+  or otherwise we can't see it in the right place. *e.g.* ``hw01``, ``hw02``, ...
 * Submit that folder as a whole into the right course. *e.g.* ``gsubmit cs320 hw01``
 	
-.. warning:: The command is **case-sensitive**, ``gsubmit CS320 hw01`` will submit your work to another planet. \
-			 Please use lower-case whenever possible. 
+.. warning:: The command is **case-sensitive**, 
+  ``gsubmit CS320 hw01`` will submit your work to another planet.  
+  Please use lower-case whenever possible. 
 
 * If you forget how to use ``gsubmit``, try ``gsubmit --help`` for help.
 
 Quick Usage Example
 --------------------
 
-Suppose I have three files to submit: ``hello.h``, ``hello.c``, and ``main.c``.
+Suppose I have three files to submit: ``hello.h``, ``hello.c``, and ``main.c``, which
+are already on the csa2.bu.edu server.
 
 .. code-block:: bash
 
@@ -36,14 +42,21 @@ Suppose I have three files to submit: ``hello.h``, ``hello.c``, and ``main.c``.
 	gsubmit cs320 -ls                  #double check that everything is submitted
 
 
+Python
+===============
+The `note <http://cs-people.bu.edu/lapets/320/s.php?#B>`_ contains a simple introduction
+of Python programming language. We will use Python 3 for grading. Make sure you are
+using the correct version when working on your homework.
+
 Background
 ===============
 
-#. We use programming languages to write programs.
+#. Programming language is a set of programs.
 #. We use grammars to describe programming languages.
-#. We use notations to describe grammars.
-#. We implement grammars as automata.
-#. We use automata to recognize programming languages.
+#. Writing a program using a programming language means keying a sequence of characters/tokens
+   compabile with the grammar of the programming language.
+#. We use notations to describe grammers.
+
 
 Formal Language
 -----------------
@@ -51,6 +64,10 @@ Formal Language
 #. It has an **alphabet**, which is a finite set of symbols, and is usually denoted as :math:`\Sigma`.
 #. **String** is a finite sequence of symbols from the alphabet, including empty string :math:`\epsilon`.
 #. A **formal language** is *a set of strings* defined over an alphabet, including the empty set :math:`\emptyset`.
+
+#. We use notations to describe grammars.
+#. We implement grammars as automata.
+#. We use automata to recognize programming languages.
 
 Formal Grammar
 ----------------
@@ -75,6 +92,74 @@ Type 3
 	Regular grammars. These grammars generate regular languages.
 
 .. note:: Note that actually, people can add restrictions onto these four types of grammars, and use those subset grammars to generate subset languages. For example, there are some important subsets of context-free grammars, like *LL(k)* and *LR(k)* grammars. You don't need to learn it for now. Just get some sense of those terminologies and their relationship.
+
+Regular Language and Regular Expression
+============================================
+
+Regular language is a formal language, regular expression (in formal language theory) is a way (notation) to describe regular grammar.
+
+Regular Language
+------------------
+
+Recall that a language is essentially a set of strings.
+
+* The empty set is a regular language.
+* Every symbol of :math:`\Sigma \cup \{\epsilon\}` is a regular language.
+* If :math:`L_1, L_2` are regular languages, then 
+
+	* :math:`L_1 \cdot L_2 = \{xy \mid x \in L_1, y \in L_2\}` is a regular language. It is formed by concatenate strings in both languages. Sometimes it is written as :math:`L_1L_2`.
+	* :math:`L_1 \cup L_2` is a regular language. It is simply the union of both languages.
+	* :math:`L^*` is a regular language. This is called the Kleene-Star, or Kleene closure. It is formed by concatenating any strings in :math:`L` any times (including zero times). *e.g.* :math:`\{a,b\}^* = \{\epsilon, a, b, ab, aa, bb, abb, aab, aaa, baa, bba, bbb, ...\}`.
+
+* And there is no other regular languages.
+
+.. admonition:: Examples
+
+	Assume :math:`\Sigma=\{a, b\}`. :math:`\{\epsilon\},\emptyset, \{a\}, \{a, a\}, \{abaab, babba\}` are regular languages. :math:`\{a^nb^n\mid n \in \mathbb{N}\}` is not.
+
+Regular Expression
+---------------------
+
+A regular expression describes a regular language. It is actually a compact notation for regular grammars.
+A regular expression itself is a character string of special form. 
+The set of all valid regular expressions is itself a language. An informal
+description (grammar) of such language is given in the `note <http://cs-people.bu.edu/lapets/320/s.php#2.2>`_.
+
+.. admonition:: Question
+
+  Can this language be described by a regular expression?
+
+Let's play with regular expression a little bit. http://www.regexr.com/
+
+* Match number between 0 and 255.
+
+  .. admonition:: text
+    
+    .11.
+    
+    .0.
+   
+    .249.
+    
+    .253.
+
+* Match phone number of US formats.
+
+  .. admonition:: text
+    
+        1-234-567-8901
+    
+        1-234-567-8901
+        
+        1-234-567-8901
+        
+        1 (234) 567-8901
+        
+        1.234.567.8901
+        
+        1/234/567/8901
+        
+        12345678901
 
 
 BNF: Backus Naur Form
@@ -138,57 +223,30 @@ Here I want to present some commonly used notions.
 
 .. warning:: The same symbols may have different meanings in different context. Here we are using them in the scope of formal language theory. Later you will use them in Python and Haskell, where they have different meanings. 
 
-Regular Language and Regular Expression
-============================================
 
-Regular language is a formal language, regular expression (in formal language theory) is a way to describe regular grammar.
+BNF can replace regular expression
+--------------------------------------
 
-Regular Language
-------------------
-
-Recall that a language is essentially a set of strings.
-
-* The empty set is a regular language.
-* Every symbol of :math:`\Sigma \cup \{\epsilon\}` is a regular language.
-* If :math:`L_1, L_2` are regular languages, then 
-
-	* :math:`L_1 \cdot L_2 = \{xy \mid x \in L_1, y \in L_2\}` is a regular language. It is formed by concatenate strings in both languages. Sometimes it is written as :math:`L_1L_2`.
-	* :math:`L_1 \cup L_2` is a regular language. It is simply the union of both languages.
-	* :math:`L^*` is a regular language. This is called the Kleene-Star, or Kleene closure. It is formed by concatenating any strings in :math:`L` any times (including zero times). *e.g.* :math:`\{a,b\}^* = \{\epsilon, a, b, ab, aa, bb, abb, aab, aaa, baa, bba, bbb, ...\}`.
-
-* And there is no other regular languages.
-
-.. admonition:: Examples
-
-	Assume :math:`\Sigma=\{a, b\}`. :math:`\{\epsilon\},\emptyset, \{a\}, \{a, a\}, \{abaab, babba\}` are regular languages. :math:`\{a^nb^n\mid n \in \mathbb{N}\}` is not.
-
-Regular Expression
----------------------
-
-* :math:`\epsilon` and :math:`\emptyset` are regular expressions denoting :math:`\{\epsilon\}` and :math:`\emptyset` regular languages respectively.
-* Every symbol in :math:`\Sigma` is a regular expression denoting the regular language containing only that symbol.
-* If :math:`r,s` are regular expressions, then :math:`(r),\quad rs,\quad r \mid s,\quad r^*` are regular expressions. Sometimes, people write :math:`r\cdot s` for :math:`rs`, and :math:`r+s` for :math:`r\mid s`.
-* No other expressions are regular expressions.
-
-.. admonition:: Examples
-
-	:math:`ba^*, a(a|b)^*, (a|b)^*(aa|bb)(a|b)^*`
-
-There is another symbol, the Kleene plus as appeared in :math:`(ab)^+`, which means repeating one or more times. In this case, it is the set :math:`\{ab, abab, ababab, \cdots\}`.
-
-As mentioned, regular expression is only a way of describing regular grammar. And grammar is actually a set of production rules. So we can actually rewrite regular expressions into production rules. And we can borrow BNF notation for these production rules.
+As mentioned, regular expression is a compact notation of regular grammars. And grammar is actually a set of production rules. So we can actually rewrite regular expressions using BNF notation.
 
 Say we have a regular expression ``00[0-9]*`` (*this is a coder's way of regexp, a math people would write* :math:`00(0|1|2|3|4|5|6|7|8|9)^*` *instead*), it can be written as
 
 .. productionlist::
-	start : 0 `A`
-	A : 0 `accept`
-	accept : 0 `accept` | 1 `accept` | ... | 9 `accept`
+	Start : 0 `A1`
+	A1 : 0
+	A1 : 0 `A2`
+	A2 : 0 | 1 | ... | 9
+	A2 : (0 | 1 | ... | 9) `A2`
 
-
-
-
-.. note:: Don't worry, please just get a sense of them. As the lectures going on, you will know them better and better. **But at this time**, try your best to classify these terminologies, and find out their relationships on your own. Everything you need should be handy, either on this page, on the course page, or Google.
+Describe the language of regular expression using BNF
+----------------------------------------------------------
+.. productionlist::
+	RE : char
+	RE : `RE` `RE`
+        RE : `RE` | `RE`
+        RE : `RE`+
+        RE : `RE`*
+        RE : (`RE`)
 
 
 Bibliography

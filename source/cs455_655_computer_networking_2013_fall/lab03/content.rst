@@ -14,27 +14,27 @@ Keywords
 
 Code Example
 -------------
-* ``echoclient.py``
+* :download:`echoclient.py </download/lab03/echoclient.py>`
 
-.. literalinclude:: /_static/lab03/echoclient.py
+.. literalinclude:: /download/lab03/echoclient.py
    :language: python
    :linenos:
 
-* ``echoserver.py``
+* :download:`echoserver.py </download/lab03/echoserver.py>`
 
-.. literalinclude:: /_static/lab03/echoserver.py
+.. literalinclude:: /download/lab03/echoserver.py
    :language: python
    :linenos:
 
-* ``echoserver_worker.py``
+* :download:`echoserver_worker.py </download/lab03/echoserver_worker.py>`
 
-.. literalinclude:: /_static/lab03/echoserver_worker.py
+.. literalinclude:: /download/lab03/echoserver_worker.py
    :language: python
    :linenos:
 
-* ``echoclient_gui.py``
+* :download:`echoclient_gui.py </download/lab03/echoclient_gui.py>`
 
-.. literalinclude:: /_static/lab03/echoclient_gui.py
+.. literalinclude:: /download/lab03/echoclient_gui.py
    :language: python
    :linenos:
 

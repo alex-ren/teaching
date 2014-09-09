@@ -49,6 +49,7 @@ The contents here will be updated as the course goes on.
    :maxdepth: 2
 
    sec1/content
+   sec2/content
 
 .. sec2
    sec3

@@ -40,7 +40,7 @@ If-modified-since / Etag
 
 Wireshark Lab: HTTP
 ++++++++++++++++++++
-Please download :download:`Wireshark_HTTP_v6.1.pdf </_static/lab04/Wireshark_HTTP_v6.1.pdf>` for the
+Please download :download:`Wireshark_HTTP_v6.1.pdf </download/lab04/Wireshark_HTTP_v6.1.pdf>` for the
 instruction of this lab session.
 
 Part 3: Miscellaneous

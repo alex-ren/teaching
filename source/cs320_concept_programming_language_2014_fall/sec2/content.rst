@@ -31,6 +31,7 @@ as leaves.
 .. note::
   This process is also called derivation.
 
+.. http://ironcreek.net/phpsyntaxtree/
 .. figure:: syntax_tree01.png
 
   Token stream ``t1, t2, t3, t4, t5, t6, ......`` and Parsing Tree (Abstract Syntax)
@@ -47,6 +48,7 @@ as leaves.
 
   The abstract syntax for ``1 - 2 - 3 -4`` goes as follows:
 
+  .. [Minus(exp) [Minus(exp) [Minus(exp)  [Term(exp) [Num(term) 1]] - [Num(term) 2]] - [Num(term) 3]] - [Num(term) 4]]
   .. figure:: parsing01.png
 
 * A good grammar has no ambiguity. Only one tree can be constructed from the token stream.
@@ -82,7 +84,55 @@ Anatomy of **LL(k)**
   
   .. admonition:: demo
 
-    Try parsing "1 + 2 - 3 * 4 + 5".
+    Try parsing "1 + 2 - 3 * 4 + 5" with the following grammar.
+
+    .. productionlist:: grammar3
+        start : `exp`            // Start
+        exp : `exp` + `term`   // Add
+        exp : `exp` - `term`   // Minus
+        exp : `term`           // Term
+        term : `term` * NUM    // Mul
+        term : `term` / NUM    // Div
+        term : NUM             // Num
+        term : (`exp`)         // Group
+
+    .. [Num(term) 1]
+    .. figure:: lr_step01.png
+
+      Step 1
+
+    .. [Term(exp) [Num(term) 1]] +
+    .. figure:: lr_step02.png
+
+      Step 2
+
+    .. [Term(exp) [Num(term) 1]] + [Num(term) 2]
+    .. figure:: lr_step03.png
+
+      Step 3
+
+    .. [Plus(exp) [Term(exp) [Num(term) 1]] + [Num(term) 2]] -
+    .. figure:: lr_step04.png
+
+      Step 4
+
+    .. [Plus(exp) [Term(exp) [Num(term) 1]] + [Num(term) 2]] - [Num(term) 3]
+    .. figure:: lr_step05.png
+
+      Step 5
+
+    .. [Plus(exp) [Term(exp) [Num(term) 1]] + [Num(term) 2]] - [Num(term) 3] *
+    .. figure:: lr_step06.png
+
+      Step 6
+
+    .. [Minus(exp) [Plus(exp) [Term(exp) [Num(term) 1]] + [Num(term) 2]] - [Mul(term) [Num(term) 3] * 4]]
+    .. figure:: lr_step07.png
+
+      Step 7
+
+
+
 
 **k**: Lookahead
 
@@ -114,7 +164,7 @@ And you can verify that the resulting language is the same.
 
 .. admonition:: Example
 
-  .. productionlist:: grammar3
+  .. productionlist:: grammar4
       start : `exp`            // Start
       exp : `exp` + `term`   // Add
       exp : `exp` - `term`   // Minus
@@ -125,7 +175,7 @@ And you can verify that the resulting language is the same.
   
   is turned into
 
-  .. productionlist:: grammar4
+  .. productionlist:: grammar5
       start : `exp`
       exp : `term` `exp1`
       exp1 : + `term` `exp1`
@@ -155,7 +205,7 @@ We turn them into
 
 .. admonition:: Example
 
-  .. productionlist:: grammar5
+  .. productionlist:: grammar6
       start : `exp`          // Start
       exp : `exp` + `term`   // Add
       exp : `exp` - `term`   // Minus
@@ -166,7 +216,7 @@ We turn them into
   
   is turned into
 
-  .. productionlist:: grammar6
+  .. productionlist:: grammar7
       start : `exp`
       exp : `exp` `term1`
       term1 : + `term`
@@ -175,7 +225,7 @@ We turn them into
 
   Do left recursion elimination.
 
-  .. productionlist:: grammar7
+  .. productionlist:: grammar8
       start : `exp`
       exp : `term` `exp1`
       exp1 : `term1` `exp1`

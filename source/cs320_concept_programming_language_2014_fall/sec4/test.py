@@ -4,6 +4,15 @@ import unittest
 
 from parse import *
 
+class ExpressionTestCase(unittest.TestCase):
+    def test_01(self):
+        s = ["a", "xor", "b"]
+        t =       {'Xor': [ \
+                  {'Variable': ['a']},  \
+                  {'Variable': ['b']}
+                  ]}
+        self.assertEqual(t, expression(s)[0])
+
 class NumberTestCase(unittest.TestCase):
     def test_1(self):
         self.assertEqual(123, number(["123"])[0])
@@ -30,13 +39,15 @@ class VariableTestCase(unittest.TestCase):
 class FormulaTestCase(unittest.TestCase):
     def test_left_asso(self):
         s = ["x", "xor", "true", "xor", "y"]
-        t = {"XOR": [{"XOR": [{"Variable": ["x"]}, "True"]}, {"Variable": ["y"]}]}
+        t = {"Xor": [{"Xor": [{"Variable": ["x"]}, "True"]}, {"Variable": ["y"]}]}
         self.assertEqual(t, formula(s)[0])
 
     def test_invalid(self):
         s = ["x", "xor", "true", "xor", "y", "3"]
-        t = {"XOR": [{"XOR": [{"Variable": ["x"]}, "True"]}, {"Variable": ["y"]}]}
+        t = {"Xor": [{"Xor": [{"Variable": ["x"]}, "True"]}, {"Variable": ["y"]}]}
         self.assertEqual(None, formula(s))
+
+
 
 class FactorTestCase(unittest.TestCase):
     def test_left_asso(self):
@@ -108,7 +119,7 @@ class ProgramTestCase(unittest.TestCase):
                    ]} \
                ]}, \
                {"Print": [ \
-                   {"XOR": ["True", "False"]}, \
+                   {"Xor": ["True", "False"]}, \
                    {"Print": [ \
                        {"Number": [1]},
                        "End" \
@@ -117,6 +128,58 @@ class ProgramTestCase(unittest.TestCase):
             ]}
 
         self.assertEqual(t, program(s)[0])
+
+    def test_02(self):
+        s = "assign x := 1 + 2 ; while false { assign y := a xor b ; }".split(" ")
+        t = {'Assign': [ \
+                {'Variable': ['x']}, \
+                {'Plus': [ \
+                    {'Number': [1]}, \
+                    {'Number': [2]} \
+                ]}, \
+                {'While': [ \
+                    'False',  \
+                    {'Assign': [ \
+                        {'Variable': ['y']},  \
+                        {'Xor': [ \
+                            {'Variable': ['a']},  \
+                            {'Variable': ['b']} \
+                        ]},  \
+                        'End' \
+                    ]},  \
+                    'End' \
+                ]} \
+            ]}
+        self.assertEqual(t, program(s)[0])
+    
+    def test_03(self):
+        s = "if false { assign y := a xor b ; }".split(" ")
+        t =     {'If': [ \
+                    'False',  \
+                    {'Assign': [ \
+                        {'Variable': ['y']},  \
+                        {'Xor': [ \
+                            {'Variable': ['a']},  \
+                            {'Variable': ['b']} \
+                        ]},  \
+                        'End' \
+                    ]},  \
+                    'End' \
+                ]}
+        self.assertEqual(t, program(s)[0])
+
+    def test_04(self):
+        s = "assign y := a xor b ;".split(" ")
+        t =         {'Assign': [ \
+                        {'Variable': ['y']},  \
+                        {'Xor': [ \
+                            {'Variable': ['a']},  \
+                            {'Variable': ['b']} \
+                        ]},  \
+                        'End' \
+                    ]} 
+        self.assertEqual(t, program(s)[0])
+
 
 class TokenizeTestCase(unittest.TestCase):
     def test_1(self):

@@ -82,7 +82,7 @@ Unit Testing (only for Python 3):
 
 .. code-block:: bash
 
-  python -m unittest test  # all the tests in test.py
+  python3 -m unittest test  # all the tests in test.py
   python3 -m unittest test.NumberTestCase  # all the tests in NumberTestCase
   python3 -m unittest test.NumberTestCase.test_negtive # one test
 

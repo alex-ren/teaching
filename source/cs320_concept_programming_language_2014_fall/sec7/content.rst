@@ -2,11 +2,8 @@
 
 
 *********************
-Discussion Session 7
+Discussion Session 7: Program Verification
 *********************
-
-Program Verification
-========================
 
 .. productionlist:: formulagrammar
   formula: true | false
@@ -57,7 +54,7 @@ Python code::
 
 
 Bounded Exhaustive Testing
----------------------------
+==============================
 Set of all possible inputs is defined inductively. We can enumerate them exhaustively.
 See `notes <http://cs-people.bu.edu/lapets/320/s.php?#5.8>`_. The introduction of metric 
 guarantees that we do enumerate all the possibilities.
@@ -100,11 +97,73 @@ Code::
 
 
 Proof by Induction
----------------------
+========================
 
 * Base Case: evaluateFormula is correct for formula whose height is 1.
 * Inductive Step: The input formula has height n+1.
 * Induction Hypothesis: evaluateFormula is correct for formula whose height is <= n.
+
+Example of fibonacci function
+===================================
+
+Definition of fibonacci function
+----------------------------------
+fib(n) =
+  0 if n = 0
+
+  1 if n = 1
+
+  fib(n-1) + f(n-2) if n > 1
+
+Implementation of fibonacci function
+-------------------------------------
+
+::
+
+  def Fib(n):
+    def Fib0(n, x, y):
+      if n = 0:
+        return y
+      if n > 0:
+        return Fib0(n - 1, x + y, x)
+
+    return Fib0(n, 1, 0)
+
+Verification Task
+-------------------
+
+For any n >= 0, fib(n) == Fib(n).
+
+Proof By Induction
+--------------------
+
+We prove the following instead.
+
+For any n >= 0, for any a >= 0, Fib0(n, fib(a+1), fib(a)) == fib(a+n).
+
+Base Case:
+  | When n = 0, we have
+  | for any a >= 0, Fib0(0, fib(a+1), fib(a)) = fib(a) <== (By def of Fib0)
+
+Inductive Step:
+  n = m > 0
+
+  Inductive Hypothesis: For any m0 < m, for any a >= 0, Fib0(m0, fib(a+1), fib(a)) == fib(a+m0).
+  
+  For any a >= 0, we have the following
+
+  Fib0(m, fib(a+1), fib(a))
+
+  = Fib0(m-1, fib(a+1) + fib(a), fib(a+1)) <== (By def of Fib0)
+
+  = Fib0(m-1, fib(a+2), fib(a+1)) <== (By def of fib)
+  
+  = fib(a+1 + m-1) <== (By Induction Hypothesis)
+
+  = fib(a+m) <== (Done)
+  
+
+          
 
 
 

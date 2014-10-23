@@ -24,8 +24,11 @@ Background
 
 Type theory was invented by Bertrand Russell as a solution to his own well-known 
 paradox, which cast doubt on the foundations of mathematics upon its discovery.  
-The problem posed by the paradox is essentially: given a set of all sets that 
-do not contain themselves, does that set contain itself? Type theory resolves 
+The problem posed by the paradox is essentially
+
+  Given a set of all sets that do not contain themselves, does that set contain itself? 
+  
+Type theory resolves 
 this issue by classifying the members of sets according to some type, and 
 in such a system a set definition like this one is not permissible.
 
@@ -91,6 +94,15 @@ Sample Program::
                                                                               , {"Add": [ {"Variable": ["x"]} \
                                                                                         , {"Variable": ["y"]} ]} ]} \
                                                                   , "End" ]} ]} ]} ]}
+
+Solution:
+:download:`check_sol.py <check_sol.py>`
+
+.. literalinclude:: check_sol.py
+ :language: python
+ :linenos:
+
+
 
 Bibliography
 =====================

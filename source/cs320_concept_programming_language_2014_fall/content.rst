@@ -23,7 +23,7 @@ General Information
 * Teaching Assistant: Zhiqiang Ren (Alex)
 
   * Email: aren AT cs DOT bu DOT edu
-  * Office hour: Wed 4:00 PM - 5:30 PM, Thu 11:00 AM - 12:20 PM, Undergraduate Lab
+  * Office hour: Wed 4:00 PM - 5:30 PM, Thu 4:30 PM - 6:00 PM, Undergraduate Lab
   * Lab Session
 
     * 10:00 - 11:00 Wed (KCB 103)

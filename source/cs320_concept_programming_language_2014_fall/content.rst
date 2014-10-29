@@ -56,6 +56,7 @@ The contents here will be updated as the course goes on.
    sec6/content
    sec7/content
    sec8/content
+   sec9/content
 
 .. sec2
    sec3

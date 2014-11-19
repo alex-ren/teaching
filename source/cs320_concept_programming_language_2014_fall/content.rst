@@ -58,14 +58,6 @@ The contents here will be updated as the course goes on.
    sec8/content
    sec9/content
    sec10/content
+   sec11/content
 
-.. sec2
-   sec3
-   sec4
-   sec5
-   sec8
-   sec9
-   sec10
-   sec11
-   sec12
 

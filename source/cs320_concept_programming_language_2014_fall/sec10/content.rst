@@ -17,4 +17,13 @@ Problem Set
 
 * Lazy Evaluation and Stream
 
+Code Example
+======================
+
+.. literalinclude:: IntTree.hs
+ :language: haskell
+ :linenos:
+
+
+:download:`IntTree.hs <IntTree.hs>`
 

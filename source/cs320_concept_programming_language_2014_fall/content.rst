@@ -59,5 +59,6 @@ The contents here will be updated as the course goes on.
    sec9/content
    sec10/content
    sec11/content
+   sec12/content
 
 

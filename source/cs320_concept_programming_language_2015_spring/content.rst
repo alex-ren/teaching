@@ -1,7 +1,7 @@
-.. Last Modified: 09/01/2014
+.. Last Modified: 01/18/2015
 
-CS320 Concepts of Programming Languages
-=========================================
+CS320 Concepts of Programming Languages (Spring 2014)
+=========================================================
 
 Welcome!
 
@@ -18,18 +18,17 @@ here and no need to worry about missing a thing.
 General Information
 ---------------------
 * Official course page: http://cs-people.bu.edu/lapets/320/
-* Piazza: https://piazza.com/bu/fall2014/cs320
+* Piazza: https://piazza.com/bu/spring2015/cs320
 * Instructor: http://cs-people.bu.edu/lapets/
 * Teaching Assistant: Zhiqiang Ren (Alex)
 
   * Email: aren AT cs DOT bu DOT edu
-  * Office hour: Wed 4:00 PM - 5:30 PM, Thu 4:30 PM - 6:00 PM, Undergraduate Lab
+  * Office hour: Mon 4:00 PM - 5:30 PM, Wed 3:00 PM - 4:30 PM, Undergraduate Lab
   * Lab Session
 
-    * 10:00 - 11:00 Wed (KCB 103)
-    * 11:00 - 12:00 Wed (KCB 103)
-    * 12:00 - 13:00 Wed (MCS B23)
-    * 15:00 - 16:00 Wed (COM 215)
+    * 10:00 - 11:00 Wed (MCS B23)
+    * 11:00 - 12:00 Wed (MCS B23)
+    * 12:00 - 13:00 Wed (MCS B19)
  
 Working With CS Computing Resources
 --------------------------------------

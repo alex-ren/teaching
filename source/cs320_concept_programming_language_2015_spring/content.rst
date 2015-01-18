@@ -1,6 +1,6 @@
 .. Last Modified: 01/18/2015
 
-CS320 Concepts of Programming Languages (Spring 2014)
+CS320 Concepts of Programming Languages (Spring 2015)
 =========================================================
 
 Welcome!

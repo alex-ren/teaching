@@ -49,5 +49,6 @@ The contents here will be updated as the course goes on.
 
    sec1/content
    sec2/content
+   sec3/content
 
 

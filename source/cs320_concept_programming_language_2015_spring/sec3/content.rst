@@ -125,45 +125,45 @@ Limitation of our implementation of Recursive Descendent Parser
 
   Does this grammar have ambiguity?
 
-..  Assume we do not care. Let parsing process dissolve the ambiguity for concrete 
-    syntax like ``print x``.
+Assume we do not care. Let parsing process dissolve the ambiguity for concrete 
+syntax like ``print x``.
 
 .. admonition:: Question
 
   Can our recursive descendent parser handle the concrete syntax ``print true and false``?
 
-.. Ordering of rules matters.
+Ordering of rules matters.
 
 .. admonition:: Question
 
   Can our recursive descendent parser handle the concrete syntax ``print x + 1``?
 
-..
-    Any remedy?
-    
-    .. productionlist:: grammar4a
-      program: print `formula` ; `program`
-      program: print `term` ; `program`
-      program:                  // Empty
-    
-    .. productionlist:: grammar4b
-      program: print `expression` `program`
-      program:                  // Empty
-      expression: `formula`;
-      expression: `term`;
+
+Any remedy?
+
+.. productionlist:: grammar4a
+  program: print `formula` ; `program`
+  program: print `term` ; `program`
+  program:                  // Empty
+
+.. productionlist:: grammar4b
+  program: print `expression` `program`
+  program:                  // Empty
+  expression: `formula`;
+  expression: `term`;
 
 .. admonition:: Question
 
   What is perfect backtracking?
 
-..
-    .. productionlist:: grammar5
-      a1: b1 b2 b3
-      b1: c1
-      b1: c2
-    
-    Search all possible sequences of choices: record the state at each choice and
-    backtrack if necessary.
+
+.. productionlist:: grammar5
+  a1: b1 b2 b3
+  b1: c1
+  b1: c2
+
+Search all possible sequences of choices: record the state at each choice and
+backtrack if necessary.
 
 
 

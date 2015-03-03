@@ -58,6 +58,34 @@ Program Examples
 
    Ans:
 
+   .. code-block:: python
+
+      from machine import *
+
+      init1 = ["set 8 100"]
+      
+      ans1 = ["set 3 8", \
+              "set 4 1", \
+              "copy", \
+              "set 2 1", \
+              "add", \
+              "set 3 0", \
+              "set 4 8", \
+              "copy"]
+      
+      def copy(src, dst):
+          return ["set 3 " + str(src), \
+                  "set 4 " + str(dst), \
+                  "copy"]
+      
+      ans1a = copy(8, 1) + \
+              ["set 2 1", \
+               "add" ] + \
+               copy(0, 8)
+
+      print simulate(init1 + ans1)
+      print simulate(init1 + ans1a)
+
 2. Please write the machine code, the execution of which have the following property:
 
    Assume in the initial state, memory 8 stores a natural number n, after the execution
@@ -67,9 +95,47 @@ Program Examples
 
    Ans:
 
+   .. code-block:: python
+
+      from machine import *
+
+      def copy(src, dst):
+          return ["set 3 " + str(src), \
+                  "set 4 " + str(dst), \
+                  "copy"]
+
+      def decrement(addr):
+          return copy(addr, 1) + \
+              ["set 2 -1", \
+               "add" ] + \
+               copy(0, addr)
+      
+      def addto(src, dst):
+          return copy(src, 1) + \
+                 copy(dst, 2) + \
+                 ["add"] + \
+                 copy(0, dst)
+      
+      ans2 = ["set 9 0"] + \
+              copy(8, 10) + \
+              ["label start", \
+              "branch loop 10", \
+              "goto end", \
+              "label loop"] + \
+              addto(10, 9) + \
+              decrement(10) + \
+              ["goto start", \
+              "label end"]
+      
+      init2 = ["set 8 100"]
+      print simulate(init2 + ans2)
+
+
 3. Please write the machine code for the defintion of a recursive function, which can output
    100 several times according to the value stored in memory 8. Please also write the
    code for invoking such function.
+
+   Ans: After the deadline of assignment 3
 
 Tail Call Optimization
 =======================================

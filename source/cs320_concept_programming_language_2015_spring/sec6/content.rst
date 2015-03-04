@@ -1,9 +1,12 @@
 .. Last modified: 03/03/2015
 
 
-*********************
+************************************************
 Discussion Session 6: Program Verification
-*********************
+************************************************
+
+Intepretation
+=======================
 
 .. productionlist:: formulagrammar
   formula: true | false

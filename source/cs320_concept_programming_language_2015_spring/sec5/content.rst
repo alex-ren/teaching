@@ -58,6 +58,8 @@ Program Examples
 
    Ans:
 
+   :download:`machine.py <machine.py>`
+
    .. code-block:: python
 
       from machine import *
@@ -94,6 +96,9 @@ Program Examples
    after the execution.
 
    Ans:
+
+   :download:`machine.py <machine.py>`
+
 
    .. code-block:: python
 
@@ -135,7 +140,13 @@ Program Examples
    100 several times according to the value stored in memory 8. Please also write the
    code for invoking such function.
 
-   Ans: After the deadline of assignment 3.
+   Ans:
+
+   :download:`machine.py <machine.py>`
+
+   .. literalinclude:: ans.py
+     :language: python
+     :linenos:
 
 Tail Call Optimization
 =======================================

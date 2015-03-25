@@ -1,4 +1,4 @@
-.. Last Modified: 01/18/2015
+.. Last Modified: 03/24/2015
 
 CS320 Concepts of Programming Languages (Spring 2015)
 =========================================================
@@ -54,5 +54,6 @@ The contents here will be updated as the course goes on.
    sec5/content
    sec6/content
    sec7/content
+   sec8/content
 
 

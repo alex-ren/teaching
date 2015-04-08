@@ -10,7 +10,6 @@ data Regexp =
  | REcat Regexp Regexp
  | REstar Regexp
 
--- string_regexp_match :: String -> Regexp -> Bool
 string_regexp_match str reg = let
   str_isempty :: String -> Bool
   str_isempty [] = True
@@ -18,7 +17,6 @@ string_regexp_match str reg = let
   in
   accept str reg str_isempty
 
--- accept :: String -> Regexp -> (String -> Bool) -> Bool
 accept str reg k =
   case reg of
   REnil -> False

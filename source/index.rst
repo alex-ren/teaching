@@ -14,6 +14,7 @@ Courses:
    cs455_655_computer_networking_2013_fall/content.rst
    cs440_640_artificial_intelligence_2014_spring/content.rst
    cs320_concept_programming_language_2015_spring/content.rst
+   cs320_concept_programming_language_2015_summer/content.rst
 
    
     

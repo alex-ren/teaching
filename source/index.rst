@@ -15,6 +15,7 @@ Courses:
    cs440_640_artificial_intelligence_2014_spring/content.rst
    cs320_concept_programming_language_2014_fall/content.rst
    cs320_concept_programming_language_2015_spring/content.rst
+   cs320_concept_programming_language_2015_summer/content.rst
 
    
     

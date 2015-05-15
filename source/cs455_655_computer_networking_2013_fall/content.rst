@@ -3,6 +3,11 @@
 CS455/655 Introduction to Computer Networks
 =============================================
 
+General Information
+----------------------------------------------
+This is an auxiliary webpage for the class. The main webpage is 
+https://sites.google.com/site/alex2ren/cs455-655-introduction-to-computer-networks-fall-2013-tf.
+
 How to use WireShark in the Undergraduate Lab.
 ----------------------------------------------
 
@@ -30,7 +35,6 @@ WireShark has been installed on all the Windows machines in the Instructional La
 .. toctree::
    :maxdepth: 2
 
-   lab01/content
    lab03/content
    lab04/content
 

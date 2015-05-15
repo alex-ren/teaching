@@ -20,7 +20,7 @@ General Information
 * Official course page: http://www.cs.bu.edu/~hwxi/academic/courses/CS320/Summer15/classpage.html
 * Piazza: https://piazza.com/class/i9enorcjabc233
 * Instructor: http://www.cs.bu.edu/~hwxi/
-* Teaching Assistant: Zhiqiang Ren (Alex)
+* Teaching Assistant: `Zhiqiang Ren (Alex) <http://cs-people.bu.edu/aren>`_
 
   * Email: aren AT cs DOT bu DOT edu
   * Office hour: Mon 5:00 PM - 06:30 PM, Thu 01:00 PM - 02:30 PM, Undergraduate Lab

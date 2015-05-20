@@ -106,13 +106,13 @@ Use the following command to stage your modification.
 
 Use the following command to commit your modification.
 
-.. code-blcok:: bash
+.. code-block:: bash
 
     git commit -m "This is my first try of ATS."
 
 Try the following command to check the history of your commit.
 
-.. code-blcok:: bash
+.. code-block:: bash
 
     git log
 

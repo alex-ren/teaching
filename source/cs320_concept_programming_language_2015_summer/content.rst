@@ -46,7 +46,7 @@ The contents here will be updated as the course goes on.
 .. toctree::
    :maxdepth: 2
 
-..   sec1/content
+   sec1/content
 ..   sec2/content
 ..   sec3/content
 ..   sec4/content

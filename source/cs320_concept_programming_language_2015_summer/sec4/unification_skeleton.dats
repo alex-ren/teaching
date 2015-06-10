@@ -1,4 +1,3 @@
-
 #define
 ATS_PACKNAME "LAB_UNIFICATION"
 
@@ -108,36 +107,11 @@ in
     cons0 {'(string, exp)} ('(name, v), xs)
   end
 
-  implement subs_merge (s1, s2) = let
-    fun add_one (res: subs, x: '(string, exp)):<cloref1> subs =
-      subs_add (res, x.0, x.1)
-  in
-    list0_foldleft (s1, s2, add_one)
-  end
+  // implement subs_merge (s1, s2) = todo
 
-  implement subs_get (s: subs, n: string) =
-    case+ s of
-    | cons0 (x, xs) => if n = x.0 then x.1
-                       else subs_get (xs, n)
-    | nil0 () => $raise notfound
+  // implement subs_get (s: subs, n: string) = todo
 
-  implement subs_substitute (e, s) =
-    case+ e of
-    | VAR (x) => (try subs_get (s, x)
-                 with | ~notfound () => e
-                 )
-    | INT (_) => e
-    | CONS (id, xs) => let
-      fun aux (x: exp, snk: list0 exp):<cloref1> list0 exp = let
-        val x' = subs_substitute (x, s)
-      in
-        cons0 (x', snk)
-      end
-
-      val xs' = list0_foldright (xs, aux, nil0)
-    in
-      CONS (id, xs')
-    end
+  // implement subs_substitute (e, s) = todo
 
   implement print_subs (s) = let
     fun print_subs_tail (s: subs): void =
@@ -162,32 +136,7 @@ end  // end of [local]
 // may raise exception
 extern fun unify (a: exp, b: exp): subs
 
-implement unify (a, b) = let
-  fun aux (a: exp, b: exp, s: subs): subs =
-  case+ (a, b) of
-  | (INT (_), INT (_)) => s
-  | (VAR (x), _) => subs_add (s, x, b)
-  | (_, VAR (y)) => subs_add (s, y, a)
-  | (CONS (ida, xsa), CONS (idb, xsb)) => 
-      if ida <> idb then $raise conflict
-      else let
-        fun unify_lst (xs: explst, ys: explst, s: subs): subs =
-          case+ (xs, ys) of
-          | (nil0 (), nil0 ()) => s
-          | (cons0 (x, xs1), cons0 (y, ys1)) => let
-            val s1 = aux (x, y, s)
-          in
-            unify_lst (xs1, ys1, s1)
-          end
-          | (_, _) => $raise conflict
-      in
-        unify_lst (xsa, xsb, s)
-      end
-  | (_, _) => $raise conflict
-in
-  aux (a, b, subs_create ())
-end
-
+// implement unify (a, b) = todo
 
 implement main0 () = let
   // cons1 (y, nil1 ())

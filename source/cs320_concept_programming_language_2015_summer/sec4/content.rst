@@ -81,14 +81,22 @@ Expression and Substitution
 
 .. code-block:: text
 
-  typedef substitution = '(string, exp)
+  abstype substitution = ptr
   typedef subs = substitution
-  fun subs_create (): subs
-  fun subs_add (s: subs, name: string, v: exp): subs  // may raise exception
-  fun subs_merge (s1: subs, s2: subs): subs  // may raise exception
-  fun print_subs (s: subs): void
 
-**Definition of substitute expresion *a* with substitution :math:`\sigma`:**
+  exception conflict of ()
+  exception notfound of ()
+
+  extern fun subs_create (): subs
+  extern fun subs_add (s: subs, name: string, v: exp): subs  // may raise exception
+  extern fun subs_merge (s1: subs, s2: subs): subs  // may raise exception
+  extern fun subs_get (s: subs, n: string): exp // may raise exception
+
+  extern fun print_subs (s: subs): void
+
+  assume substitution = '(string, exp)  // one possible implementation
+
+**Definition of substitute expresion *a* with substitution** :math:`\sigma`:
   Replace the variables in an expression with corresponding expression designated
   in the substitution.
 
@@ -96,7 +104,7 @@ Expression and Substitution
 
 .. code-block:: text
 
-  fun subs (a: exp, s: subs): exp
+  extern fun subs_substitute (e: exp, s: subs): exp
 
 Unification
 ----------------------------------
@@ -124,12 +132,19 @@ Unification
 
   fun unify (a: exp, b: exp): subs  // may raise exception
 
-**Code**
+**Skeleton Code**
 
-:download:`unification.dats <./unification.dats>`
+.. literalinclude:: unification_skeleton.dats
+
+:download:`unification_skeleton.dats <./unification_skeleton.dats>`
+
+**Solution**
+
+to be
+
+.. :download:`unification.dats <./unification.dats>`
 
 :download:`Makefile <./Makefile>`
-
 
 Bibliography
 ==============

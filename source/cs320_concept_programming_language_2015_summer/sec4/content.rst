@@ -124,6 +124,13 @@ Unification
 
   fun unify (a: exp, b: exp): subs  // may raise exception
 
+**Code**
+
+:download:`unification.dats <./unification.dats>`
+
+:download:`Makefile <./Makefile>`
+
+
 Bibliography
 ==============
 

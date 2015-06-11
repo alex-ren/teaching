@@ -7,12 +7,12 @@ include $(PATSHOME)/share/atsmake-pre.mk
 include $(PATSHOME)/share/atsmake-post.mk
 #
 all:: \
-unification
-unification: \
-unification.dats ; \
+matrix
+matrix: \
+matrix.dats ; \
 $(PATSCC2) -DATS_MEMALLOC_LIBC -o $@ $<
-regress:: unification; ./$<
-cleanall:: ; $(RMF) unification
+regress:: matrix; ./$<
+cleanall:: ; $(RMF) matrix
 #
 testall:: regress
 testall:: cleanall

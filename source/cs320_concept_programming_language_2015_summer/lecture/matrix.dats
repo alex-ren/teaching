@@ -13,16 +13,16 @@
 
 
   val m = matrix0_make_elt<int> (i2sz(3), i2sz(2), 0)
-  val sz = m.ncol
+  val sz = m.ncol ()
   val x = sz2i (sz) - 1
 
 
   val m = matrix0_make_elt<int> (i2sz(3), i2sz(2), 0)  // Apply type argument to the template.
   val nrow = matrix0_get_nrow (m)  // type of nrow is size_t
-  val nrow2 = m.nrow
+  val nrow2 = m.nrow ()
 
   val ncol = matrix0_get_ncol (m)
-  val ncol2 = m.ncol
+  val ncol2 = m.ncol ()
 
   val x = matrix0_get_at (m, 1 (*row*), 1 (*col*))  // O.K. to omit type argument.
   val x2 = m[1, 1]  // Simplified form of matrix0_get_at
@@ -45,6 +45,7 @@ implement add (m1, m2) = let
       loop1 (succ x)
     end
   and
+
   loop2 (x: size_t, y: size_t): void =
     if y >= col then ()
     else let
@@ -66,20 +67,69 @@ implement sub (m1, m2) = let
   val m = matrix0_make_elt (row, col, 0)
 
   fun loop (x: size_t, y: size_t): void =
-    if x >= row then () 
-    else if y >= col then loop (succ (x), i2sz(0))
-    else let
+    if y < col then let
       val () = m[x, y] := m1[x, y] - m2[x, y]
     in
       loop (x, y + i2sz (1))
     end
+    else if x < row - i2sz(1) then loop (x + i2sz(1), i2sz(0))
+    else ()
 
   val () = loop (i2sz (0), i2sz (0))
 in
   m
 end
 
+// implement sub (m1, m2) = let
+//   val row = matrix0_get_nrow (m1)
+//   val col = matrix0_get_ncol (m1)
+//   val m = matrix0_make_elt (row, col, 0)
+// 
+//   fun loop (x: size_t, y: size_t): void =
+//     if x >= row then () 
+//     else if y >= col then loop (succ (x), i2sz(0))
+//     else let
+//       val () = m[x, y] := m1[x, y] - m2[x, y]
+//     in
+//       loop (x, y + i2sz (1))
+//     end
+// 
+//   val () = loop (i2sz (0), i2sz (0))
+// in
+//   m
+// end
+
+extern fun matrix_determinant (m: matrix0 int): int
+
+implement matrix_determinant (m) = let
+  val nrow = m.nrow ()
+in
+  if nrow = 1 then m[0,0]
+  else let
+    extern fun matrix0_remove (
+      m: matrix0 int, row: size_t, col: size_t
+    ): matrix0 int
+
+    fun loop (n: size_t, m: matrix0 int, accu: int, sgn: int): int =
+      if n < nrow then let
+        val m2 = matrix0_remove (m, i2sz(0), n)
+        val x = m[i2sz(0), n]
+        val accu2 = accu + sgn * x * matrix_determinant (m2)
+      in
+        loop (n + i2sz(1), m, accu, sgn * (~1))
+      end
+      else accu
+  in
+    loop (i2sz(0), m, 0, 1)
+  end
+end
+
+
+
+
+
 extern fun matrix_merge (m1: matrix0 int, 
+
                          m2: matrix0 int, 
                          f: (int, int) -> int): matrix0 int
 

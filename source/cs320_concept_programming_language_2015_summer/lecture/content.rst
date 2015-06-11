@@ -180,10 +180,10 @@ Code Example:
 
   val m = matrix0_make_elt<int> (i2sz(3), i2sz(2), 0)  // Apply type argument to the template.
   val nrow = matrix0_get_nrow (m)  // type of nrow is size_t
-  val nrow2 = m.nrow  // Simplified form of matrix0_get_nrow
+  val nrow2 = m.nrow () // Simplified form of matrix0_get_nrow
 
   val ncol = matrix0_get_ncol (m)  // type of nrol is size_t
-  val ncol2 = m.ncol  // Simplified form of matrix0_get_ncol
+  val ncol2 = m.ncol ()  // Simplified form of matrix0_get_ncol
 
   val x = matrix0_get_at (m, 1 (*row*), 1 (*column*))  // O.K. to omit type argument.
   val x2 = m[1, 1]  // Simplified form of matrix0_get_at
@@ -201,7 +201,7 @@ of type *int*. Also ATS compiler doesn't know how to do arithmetic operations on
 .. code-block:: text
 
   val m = matrix0_make_elt<int> (i2sz(3), i2sz(2), 0)
-  val sz = m.ncol
+  val sz = m.ncol ()
   val x = sz2i (sz) - 1
 
 Practice
@@ -209,12 +209,13 @@ Practice
 
 .. code-block:: text
 
-  extern fun transpose (m: matrix0 int): void
   extern fun add (m1: matrix0 int, m2: matrix0 int): matrix0 int
   extern fun sub (m1: matrix0 int, m2: matrix0 int): matrix0 int
   extern fun mul (m1: matrix0 int, m2: matrix0 int): matrix0 int
 
-  extern fun rank (m: matrix0 int): int
+  extern fun transpose (m: matrix0 int): void
+
+  extern fun determinant (m: matrix0 int): int
 
 Game of Tetris
 ===================================

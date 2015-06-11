@@ -4,6 +4,31 @@
 
 #include "share/HATS/atspre_staload_libats_ML.hats"
 
+  val refa = ref<int>(0)
+  val x = ref_get_elt<int> (refa)
+  val () = ref_set_elt (refa, x + 1)
+
+  val y = !refa
+  val () = !refa := y + 1
+
+
+  val m = matrix0_make_elt<int> (i2sz(3), i2sz(2), 0)
+  val sz = m.ncol
+  val x = sz2i (sz) - 1
+
+
+  val m = matrix0_make_elt<int> (i2sz(3), i2sz(2), 0)  // Apply type argument to the template.
+  val nrow = matrix0_get_nrow (m)  // type of nrow is size_t
+  val nrow2 = m.nrow
+
+  val ncol = matrix0_get_ncol (m)
+  val ncol2 = m.ncol
+
+  val x = matrix0_get_at (m, 1 (*row*), 1 (*col*))  // O.K. to omit type argument.
+  val x2 = m[1, 1]  // Simplified form of matrix0_get_at
+
+  val () = matrix0_set_at_int (m, 1, 1, x + 1)
+  val () = m[1,1] := x + 1  // Simplified form of matrix0_set_at
 
 extern fun add (m1: matrix0 int, m2: matrix0 int): matrix0 int
 

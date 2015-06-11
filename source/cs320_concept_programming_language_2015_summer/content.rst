@@ -49,6 +49,7 @@ The contents here will be updated as the course goes on.
    sec1/content
    sec2/content
    sec4/content
+   lecture/content
 ..   sec5/content
 ..   sec6/content
 ..   sec7/content

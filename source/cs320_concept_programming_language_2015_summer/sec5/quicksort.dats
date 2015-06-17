@@ -12,8 +12,6 @@ ATS_PACKNAME "LAB_QUICKSORT"
 
 // return value ret: new position for the pivot
 // ret < enda
-// elements in [beg, ret) are less than arr[ret]
-// elements in [ret, enda) are no less than arr[ret]
 extern fun array0_partition (
   arr: array0 int, beg: size_t, enda: size_t): size_t
 
@@ -50,6 +48,8 @@ implement array0_partition (arr, beg, enda) = let
 
   val pivot = arr[enda - i2sz(1)]
 
+  // return value ret: new position for the pivot
+  // ret < enda
   // elements in [beg, div) are less than p
   // elements in [div, cur) are no less than p
   fun loop (arr: array0 int,

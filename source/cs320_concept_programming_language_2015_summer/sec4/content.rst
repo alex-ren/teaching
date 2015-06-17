@@ -140,9 +140,7 @@ Unification
 
 **Solution**
 
-to be
-
-.. :download:`unification.dats <./unification.dats>`
+:download:`unification.dats <./unification.dats>`
 
 :download:`Makefile <./Makefile>`
 

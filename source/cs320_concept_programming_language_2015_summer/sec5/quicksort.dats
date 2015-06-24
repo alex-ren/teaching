@@ -99,8 +99,8 @@ end
 implement main0 () = let
 
   // create an array0 in an easy way
-  val xs = $arrpsz{int} (2, 9, 8, 4, 5, 3, 1, 7, 6, 0) (* end of [val] *)
-  val xs = array0 (xs)
+  val xs = $arrpsz{int} (2, 9, 8, 4, 5, 3, 1, 7, 6, 0): arrpsz(int, 10) (* end of [val] *)
+  val xs = array0 (xs): array0 int
 
   val () = fprint! (stdout_ref, "xs(*input*)  = ")
   val () = fprint_array0 (stdout_ref, xs)
